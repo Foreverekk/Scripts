@@ -4,7 +4,7 @@
  * Author: Foreverekk
  */
 
-// Array of image URLs
+//
 const images = [
     "image1.jpg",
     "image2.jpg",
@@ -15,13 +15,21 @@ const images = [
   let currentImageIndex = 0;
   const imageElement = document.getElementById("slideshow-image");
   
-  // Function to display the current image
+/**
+ * Updates the slideshow display with the current image.
+ * Sets the src attribute of the slideshow image element to the current image's URL.
+ */
   function displayImage() {
     const currentImage = images[currentImageIndex];
     imageElement.setAttribute("src", currentImage);
   }
   
-  // Function to show the next image
+/**
+ * Advances the slideshow to the next image.
+ * If the current index reaches the end of the images array,
+ * it wraps around to the first image. Then, it updates the
+ * displayed image by calling the displayImage function.
+ */
   function showNextImage() {
     currentImageIndex++;
     if (currentImageIndex >= images.length) {
@@ -30,7 +38,11 @@ const images = [
     displayImage();
   }
   
-  // Function to show the previous image
+  /**
+   * Displays the previous image in the slideshow.
+   * If the current index is 0, it will set the current index to the last image.
+   * Then it will call displayImage() to update the displayed image.
+   */
   function showPreviousImage() {
     currentImageIndex--;
     if (currentImageIndex < 0) {
@@ -39,13 +51,12 @@ const images = [
     displayImage();
   }
   
-  // Example usage of the script
+  // Example Usage:
   const nextButton = document.getElementById("next-button");
   const previousButton = document.getElementById("previous-button");
   
   nextButton.addEventListener("click", showNextImage);
   previousButton.addEventListener("click", showPreviousImage);
   
-  // Display the initial image
   displayImage();
   

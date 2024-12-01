@@ -4,7 +4,7 @@
  * Author: Foreverekk
  */
 
-// Gallery object
+//
 const gallery = {
     images: [
       {
@@ -25,7 +25,12 @@ const gallery = {
     ],
     currentIndex: 0,
   
-    // Function to display the current image
+/**
+ * Updates the gallery display with the current image.
+ * Sets the src attribute of the gallery image element to the current image's URL.
+ * Updates the text content of the image name and description elements
+ * with the current image's name and description.
+ */
     displayImage() {
       const currentImage = this.images[this.currentIndex];
       const imageElement = document.getElementById('gallery-image');
@@ -38,7 +43,11 @@ const gallery = {
       descriptionElement.textContent = currentImage.description;
     },
   
-    // Function to navigate to the next image
+    /**
+     * Displays the next image in the gallery.
+     * If the current index is at the last image, it will set the current index to 0.
+     * Then it will call displayImage() to update the displayed image.
+     */
     nextImage() {
       this.currentIndex++;
       if (this.currentIndex >= this.images.length) {
@@ -47,7 +56,11 @@ const gallery = {
       this.displayImage();
     },
   
-    // Function to navigate to the previous image
+    /**
+     * Displays the previous image in the gallery.
+     * If the current index is 0, it will set the current index to the last image.
+     * Then it will call displayImage() to update the displayed image.
+     */
     previousImage() {
       this.currentIndex--;
       if (this.currentIndex < 0) {
@@ -57,7 +70,7 @@ const gallery = {
     },
   };
   
-  // Example usage of the script
+  // Example Usage:
   const nextButton = document.getElementById('next-button');
   nextButton.addEventListener('click', function () {
     gallery.nextImage();
@@ -68,6 +81,5 @@ const gallery = {
     gallery.previousImage();
   });
   
-  // Display the initial image
   gallery.displayImage();
   

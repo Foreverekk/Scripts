@@ -4,10 +4,15 @@
  * Author: Foreverekk
  */
 
-// Generate a random number between 1 and 100
+//
 const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-// Function to start the guessing game
+/**
+ * Starts the random number guessing game.
+ * Prompts the user to guess a number between 1 and 100.
+ * Provides feedback if the guess is too low or too high.
+ * Continues until the correct number is guessed, displaying the number of attempts.
+ */
 function startGame() {
   let guess;
   let attempts = 0;
@@ -33,5 +38,4 @@ function startGame() {
   } while (true);
 }
 
-// Start the game
 startGame();

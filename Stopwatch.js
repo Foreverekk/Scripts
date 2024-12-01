@@ -4,13 +4,18 @@
  * Author: Foreverekk
  */
 
-// Stopwatch object
+//
 const stopwatch = {
     startTime: 0,
     running: false,
     elapsedTime: 0,
   
-    // Function to start the stopwatch
+    /**
+     * Starts the stopwatch.
+     * If the stopwatch is not running, it sets the startTime to the current time minus the elapsedTime,
+     * sets running to true, and logs a message indicating the stopwatch has started.
+     * If the stopwatch is already running, it logs a message indicating the stopwatch is already running.
+     */
     start() {
       if (!this.running) {
         this.startTime = Date.now() - this.elapsedTime;
@@ -21,7 +26,11 @@ const stopwatch = {
       }
     },
   
-    // Function to stop the stopwatch
+    /**
+     * Stops the stopwatch.
+     * If the stopwatch is running, it stops it and prints the elapsed time to the console.
+     * If the stopwatch is already stopped, it logs a message to the console.
+     */
     stop() {
       if (this.running) {
         this.elapsedTime = Date.now() - this.startTime;
@@ -32,7 +41,11 @@ const stopwatch = {
       }
     },
   
-    // Function to reset the stopwatch
+    /**
+     * Resets the stopwatch to its initial state.
+     * Sets the startTime to 0, running to false, and elapsedTime to 0.
+     * Logs a message indicating the stopwatch has been reset.
+     */
     reset() {
       this.startTime = 0;
       this.running = false;
@@ -41,7 +54,7 @@ const stopwatch = {
     }
   };
   
-  // Example usage of the script
+  // Example Usage:
   stopwatch.start();
   setTimeout(() => {
     stopwatch.stop();

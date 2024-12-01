@@ -4,15 +4,21 @@
  * Author: Foreverekk
  */
 
-// Array to store tasks
+//
 const tasks = [];
 
-// Function to add a task
+/**
+ * Adds a task to the task list.
+ * @param {string} task - The name of the task to add.
+ */
 function addTask(task) {
   tasks.push(task);
 }
 
-// Function to remove a task
+/**
+ * Removes a task from the task list by the given task name.
+ * @param {string} task - The name of the task to remove.
+ */
 function removeTask(task) {
   const index = tasks.indexOf(task);
   if (index !== -1) {
@@ -20,7 +26,10 @@ function removeTask(task) {
   }
 }
 
-// Function to display tasks
+/**
+ * Displays all tasks in the task list to the console.
+ * Each task is preceded by its index number in the list.
+ */
 function displayTasks() {
   console.log('Tasks:');
   tasks.forEach((task, index) => {
@@ -28,7 +37,7 @@ function displayTasks() {
   });
 }
 
-// Example usage of the script
+// Example Usage:
 addTask('Complete project');
 addTask('Buy groceries');
 addTask('Call a friend');

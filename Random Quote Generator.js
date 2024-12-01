@@ -4,7 +4,7 @@
  * Author: Foreverekk
  */
 
-// Array of quotes
+//
 const quotes = [
     "The greatest glory in living lies not in never falling, but in rising every time we fall. - Nelson Mandela",
     "The way to get started is to quit talking and begin doing. - Walt Disney",
@@ -15,13 +15,16 @@ const quotes = [
     "In the end, it's not the years in your life that count. It's the life in your years. - Abraham Lincoln",
   ];
   
-  // Function to generate a random quote
+/**
+ * Generates a random quote from the given list of quotes.
+ * @returns {string} The random quote.
+ */
   function generateRandomQuote() {
     const randomIndex = Math.floor(Math.random() * quotes.length);
     return quotes[randomIndex];
   }
   
-  // Example usage of the script
+  // Example Usage:
   const randomQuote = generateRandomQuote();
   console.log(randomQuote);
   

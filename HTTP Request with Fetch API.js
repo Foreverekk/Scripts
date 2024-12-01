@@ -4,7 +4,14 @@
  * Author: Foreverekk
  */
 
-// Function to make an HTTP request and handle the response
+/**
+ * Makes an HTTP request to the specified URL using the Fetch API
+ * and handles the response with promise chain.
+ * @param {string} url The URL to make the request to.
+ * @example
+ * makeHttpRequest('https://api.example.com/data')
+ */
+//
 function makeHttpRequest(url) {
     fetch(url)
       .then(response => {
@@ -22,7 +29,7 @@ function makeHttpRequest(url) {
       });
   }
   
-  // Example usage of the script
-  const apiUrl = 'https://api.example.com/data'; // Replace with the actual API URL
+  // Example Usage:
+  const apiUrl = 'https://api.example.com/data';
   makeHttpRequest(apiUrl);
   

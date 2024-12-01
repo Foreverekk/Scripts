@@ -4,18 +4,25 @@
  * Author: Foreverekk
  */
 
-// Image Gallery object
+//
 const imageGallery = {
     images: [],
   
-    // Function to initialize the image gallery
+    /**
+     * Initializes the image gallery with the given array of images.
+     * @param {Array<Object>} imagesArray - An array of image objects with keys 'title' and 'url'.
+     */
     init(imagesArray) {
       this.images = imagesArray;
       this.displayThumbnails();
       this.addThumbnailClickListeners();
     },
   
-    // Function to display thumbnails
+    /**
+     * Displays the thumbnails of the images in the gallery.
+     * Clears the thumbnail container's innerHTML and appends an <img> element for each image in the gallery.
+     * The img elements are given the src, alt, and index as dataset properties.
+     */
     displayThumbnails() {
       const thumbnailsContainer = document.getElementById('thumbnails');
       thumbnailsContainer.innerHTML = '';
@@ -29,7 +36,13 @@ const imageGallery = {
       });
     },
   
-    // Function to handle thumbnail click event
+/**
+ * Handles the click event on a thumbnail image. 
+ * Retrieves the index of the clicked thumbnail from its dataset and 
+ * displays the corresponding image in the lightbox.
+ *
+ * @param {Event} event - The click event object.
+ */
     handleThumbnailClick(event) {
       const clickedThumbnail = event.target;
       const index = parseInt(clickedThumbnail.dataset.index, 10);
@@ -37,7 +50,14 @@ const imageGallery = {
       this.displayLightbox(index);
     },
   
-    // Function to display the lightbox
+    /**
+     * Displays the lightbox with the image at the given index.
+     * Retrieves the image url and title from the gallery's images array and
+     * sets the src and alt attributes of the lightbox image element.
+     * Adds the 'active' class to the lightbox container to display it.
+     *
+     * @param {number} index - The index of the image to display in the lightbox.
+     */
     displayLightbox(index) {
       const lightboxContainer = document.getElementById('lightbox');
       const lightboxImage = document.getElementById('lightbox-image');
@@ -48,13 +68,18 @@ const imageGallery = {
       lightboxContainer.classList.add('active');
     },
   
-    // Function to close the lightbox
+    /**
+     * Closes the lightbox by removing the 'active' class from the lightbox container.
+     */
     closeLightbox() {
       const lightboxContainer = document.getElementById('lightbox');
       lightboxContainer.classList.remove('active');
     },
   
-    // Function to add click event listeners to thumbnails
+    /**
+     * Adds click event listeners to all thumbnail images in the #thumbnails container.
+     * The event listener calls the handleThumbnailClick method when a thumbnail is clicked.
+     */
     addThumbnailClickListeners() {
       const thumbnails = document.querySelectorAll('#thumbnails img');
       thumbnails.forEach((thumbnail) => {
@@ -62,14 +87,17 @@ const imageGallery = {
       });
     },
   
-    // Function to add click event listener to close button
+    /**
+     * Adds a click event listener to the close button.
+     * Calls the closeLightbox method when the close button is clicked.
+     */
     addCloseButtonClickListener() {
       const closeButton = document.getElementById('close-button');
       closeButton.addEventListener('click', () => this.closeLightbox());
     },
   };
   
-  // Example usage of the script
+  // Example Usage:
   const images = [
     {
       title: 'Image 1',

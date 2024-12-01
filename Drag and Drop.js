@@ -4,41 +4,50 @@
  * Author: Foreverekk
  */
 
-// Function to handle the drag start event
+/**
+ * Handles the drag start event by setting the dragged element's ID to the data
+ * transfer object.
+ * 
+ * @param {DragEvent} event The drag start event.
+ */
+//
 function handleDragStart(event) {
-    // Set the data being dragged
     event.dataTransfer.setData('text/plain', event.target.id);
   }
   
-  // Function to handle the drag over event
+
+/**
+ * Prevents the default behavior during a drag over event to allow a drop.
+ * 
+ * @param {DragEvent} event The dragover event.
+ */
   function handleDragOver(event) {
-    // Prevent the default behavior to allow dropping
     event.preventDefault();
   }
   
-  // Function to handle the drop event
+  /**
+   * Handles the drop event. Retrieves the ID of the dragged element from the
+   * dataTransfer object, finds the element with that ID, and appends it to the
+   * drop target element.
+   *
+   * @param {DragEvent} event The drop event.
+   */
   function handleDrop(event) {
-    // Get the dragged element's id
     const draggedElementId = event.dataTransfer.getData('text/plain');
   
-    // Get the drop target element
     const dropTarget = event.target;
   
-    // Move the dragged element to the drop target
     const draggedElement = document.getElementById(draggedElementId);
     dropTarget.appendChild(draggedElement);
   
-    // Prevent the default behavior
     event.preventDefault();
   }
   
-  // Add event listeners to draggable elements
   const draggableElements = document.querySelectorAll('.draggable');
   draggableElements.forEach((element) => {
     element.addEventListener('dragstart', handleDragStart);
   });
   
-  // Add event listeners to drop targets
   const dropTargets = document.querySelectorAll('.drop-target');
   dropTargets.forEach((target) => {
     target.addEventListener('dragover', handleDragOver);

@@ -4,7 +4,14 @@
  * Author: Foreverekk
  */
 
-// Function to fetch weather information from the API
+/**
+ * Retrieves the current weather information for a given city.
+ *
+ * @param {string} city The city to retrieve the weather information for.
+ * @returns {Promise<Object>} A promise that resolves with the current weather information for the given city, or null if the request fails.
+ * @throws {Error} If the request fails, an error is thrown with the error message from the response.
+ */
+//
 async function fetchWeatherInformation(city) {
     const apiKey = 'YOUR_API_KEY'; // Replace with your actual API key
     const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
@@ -24,7 +31,15 @@ async function fetchWeatherInformation(city) {
     }
   }
   
-  // Function to display weather information on the webpage
+/**
+ * Displays the weather information on the webpage.
+ *
+ * This function updates the text content of specific HTML elements to display the
+ * current weather data, including location, temperature, weather condition, and humidity.
+ *
+ * @param {Object} weatherData - An object containing the weather information to be displayed.
+ * The object should have properties: location (with name and country), temp_c, condition (with text), and humidity.
+ */
   function displayWeatherInformation(weatherData) {
     if (weatherData) {
       const locationElement = document.getElementById('location');
@@ -39,7 +54,7 @@ async function fetchWeatherInformation(city) {
     }
   }
   
-  // Example usage of the script
+  // Example Usage:
   const city = 'New York'; // Replace with the desired city
   fetchWeatherInformation(city)
     .then((weatherData) => {

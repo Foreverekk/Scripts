@@ -4,21 +4,23 @@
  * Author: Foreverekk
  */
 
-// Connect to WebSocket server
+//
 const socket = new WebSocket('ws://localhost:8080');
 
-// Function to handle WebSocket connection established
 socket.addEventListener('open', (event) => {
   console.log('Connected to WebSocket server');
 });
 
-// Function to handle WebSocket messages
 socket.addEventListener('message', (event) => {
   const message = JSON.parse(event.data);
   displayMessage(message);
 });
 
-// Function to send a chat message through WebSocket
+/**
+ * Sends a chat message to the WebSocket server.
+ * The message is sent in JSON format with a type of 'chat'.
+ * @param {string} content - The content of the chat message to be sent.
+ */
 function sendChatMessage(content) {
   const message = {
     type: 'chat',
@@ -27,7 +29,11 @@ function sendChatMessage(content) {
   socket.send(JSON.stringify(message));
 }
 
-// Function to send a system message through WebSocket
+/**
+ * Sends a system message to the WebSocket server.
+ * The message is sent in JSON format with a type of 'system'.
+ * @param {string} content - The content of the system message to be sent.
+ */
 function sendSystemMessage(content) {
   const message = {
     type: 'system',
@@ -36,7 +42,13 @@ function sendSystemMessage(content) {
   socket.send(JSON.stringify(message));
 }
 
-// Function to display a chat message on the webpage
+/**
+ * Displays a message in the chat interface.
+ * @param {Object} message - A message object with 'type' and 'content' properties.
+ * The 'type' property is either 'system' or 'chat', and the 'content' property is a string.
+ * The message is displayed in the chat interface with a class of either 'system-message'
+ * or 'chat-message', depending on the type of message.
+ */
 function displayMessage(message) {
   const messageElement = document.createElement('div');
   messageElement.textContent = message.content;
@@ -50,7 +62,6 @@ function displayMessage(message) {
   document.getElementById('chat-messages').appendChild(messageElement);
 }
 
-// Event listener for the send button
 document.getElementById('send-button').addEventListener('click', () => {
   const inputElement = document.getElementById('message-input');
   const messageContent = inputElement.value.trim();
@@ -61,7 +72,7 @@ document.getElementById('send-button').addEventListener('click', () => {
   }
 });
 
-// Example usage of the script
+// Example Usage:
 sendSystemMessage('Welcome to the chat room!');
 
 // You can call the sendChatMessage() function to send chat messages from the user interface

@@ -4,7 +4,14 @@
  * Author: Foreverekk
  */
 
-// Function to start the countdown timer
+//
+/**
+ * Starts a countdown timer of a specified duration.
+ *
+ * @param {number} duration The countdown duration in seconds.
+ * @param {HTMLElement} display The element to display the countdown in.
+ */
+//
 function startCountdown(duration, display) {
     let timer = duration;
     let minutes, seconds;
@@ -25,8 +32,8 @@ function startCountdown(duration, display) {
     }, 1000);
   }
   
-  // Example usage of the script
-  const countdownDuration = 5 * 60; // 5 minutes
+  // Example Usage:
+  const countdownDuration = 5 * 60;
   const display = document.getElementById("countdown");
   
   startCountdown(countdownDuration, display);

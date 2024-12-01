@@ -4,13 +4,20 @@
  * Author: Foreverekk
  */
 
-// Function to handle form submission
+/**
+ * Handles the form submission event and performs client-side form validation.
+ * If the form is valid, it logs a success message to the console and submits
+ * the form to the server (if uncommented). Otherwise, it logs the validation
+ * errors to the console.
+ *
+ * @param {Event} event - The form submission event.
+ */
+//
 function handleSubmit(event) {
     event.preventDefault();
   
     const form = event.target;
   
-    // Define the validation rules using Validate.js
     const validationRules = {
       name: {
         presence: true,
@@ -34,16 +41,13 @@ function handleSubmit(event) {
       }
     };
   
-    // Perform the form validation using Validate.js
     const validationResult = validate(form, validationRules);
   
     if (validationResult === undefined) {
-      // Form is valid, submit the form or perform further actions
       console.log('Form submitted successfully!');
       // Uncomment the following line to submit the form to the server
       // form.submit();
     } else {
-      // Form is invalid, handle the validation errors
       const errors = validationResult.reduce((acc, { attribute, error }) => {
         acc[attribute] = error;
         return acc;
@@ -52,7 +56,7 @@ function handleSubmit(event) {
     }
   }
   
-  // Example usage of the script
+  // Example Usage:
   const form = document.getElementById('myForm');
   form.addEventListener('submit', handleSubmit);
   

@@ -4,22 +4,47 @@
  * Author: Foreverekk
  */
 
-// Function to add two numbers
+/**
+ * Adds the second number to the first number.
+ *
+ * @param {number} a - The first number.
+ * @param {number} b - The second number.
+ * @returns {number} The sum of `a` and `b`.
+ */
+//
 function add(a, b) {
     return a + b;
   }
   
-  // Function to subtract two numbers
+/**
+ * Subtracts the second number from the first number.
+ *
+ * @param {number} a - The first number.
+ * @param {number} b - The second number.
+ * @returns {number} The result of the subtraction.
+ */
   function subtract(a, b) {
     return a - b;
   }
   
-  // Function to multiply two numbers
+  /**
+   * Multiplies two numbers.
+   *
+   * @param {number} a - The first number.
+   * @param {number} b - The second number.
+   * @returns {number} The result of the multiplication.
+   */
   function multiply(a, b) {
     return a * b;
   }
   
-  // Function to divide two numbers
+  /**
+   * Divides two numbers.
+   *
+   * @param {number} a - The first number.
+   * @param {number} b - The second number.
+   * @returns {number|string} The result of the division, or an error message if `b` is `0`.
+   */
   function divide(a, b) {
     if (b === 0) {
       return "Cannot divide by zero!";
@@ -27,7 +52,7 @@ function add(a, b) {
     return a / b;
   }
   
-  // Example usage of the script
+  // Example Usage:
   const num1 = 10;
   const num2 = 5;
   

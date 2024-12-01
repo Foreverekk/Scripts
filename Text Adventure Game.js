@@ -4,7 +4,15 @@
  * Author: Foreverekk
  */
 
-// Function to start the game
+/**
+ * Starts the text adventure game.
+ * Prompts the user to enter their name and begin the adventure.
+ * The game continues until the user reaches the end of the game.
+ * The user is presented with a choice of two doors at the start, and
+ * the game ends with a message based on their choice.
+ * @returns {void}
+ */
+//
 function startGame() {
     const playerName = prompt('Enter your name:');
   
@@ -42,6 +50,5 @@ function startGame() {
     alert('Game over. Thank you for playing!');
   }
   
-  // Start the game
   startGame();
   

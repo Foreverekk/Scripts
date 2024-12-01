@@ -4,9 +4,18 @@
  * Author: Foreverekk
  */
 
-// Function to fetch data from an API
+/**
+ * Fetches data from a specified API endpoint and logs the response data.
+ *
+ * The function performs an HTTP GET request to the API URL and handles the response.
+ * If the request is successful and the response is OK, it logs the data to the console.
+ * If the response status is not OK, it throws an error with the status code.
+ * Any network or parsing errors encountered during the fetch operation are caught
+ * and logged to the console.
+ */
+//
 async function fetchData() {
-    const apiUrl = 'https://api.example.com/data'; // Replace with the actual API URL
+    const apiUrl = 'https://api.example.com/data';
   
     try {
       const response = await fetch(apiUrl);
@@ -14,7 +23,6 @@ async function fetchData() {
       if (response.ok) {
         const data = await response.json();
         console.log('Data:', data);
-        // You can process the retrieved data here
       } else {
         throw new Error('Error: ' + response.status);
       }
@@ -23,6 +31,6 @@ async function fetchData() {
     }
   }
   
-  // Example usage of the script
+  // Example Usage:
   fetchData();
   

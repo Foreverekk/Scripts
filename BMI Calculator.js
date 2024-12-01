@@ -4,24 +4,28 @@
  * Author: Foreverekk
  */
 
-// Function to calculate BMI
+/**
+ * Calculates the Body Mass Index (BMI) based on the provided weight and height.
+ *
+ * @param {number} weight - The weight of the person in kilograms.
+ * @param {number} height - The height of the person in centimeters.
+ * @returns {string} A string containing the calculated BMI.
+ */
+//
 function calculateBMI(weight, height) {
-  // Checking for valid input
   if (weight <= 0 || height <= 0) {
     return "Please enter valid data!";
   }
 
-  // Calculating BMI
-  const heightInMeters = height / 100; // Converting height to meters
+  const heightInMeters = height / 100;
   const bmi = weight / (heightInMeters * heightInMeters);
 
-  // Returning the result rounded to two decimal places
   return "Your BMI is: " + bmi.toFixed(2);
 }
 
-// Example usage of the script
-const weight = 70; // Weight in kilograms
-const height = 170; // Height in centimeters
+// Example Usage:
+const weight = 70;
+const height = 170;
 
 const result = calculateBMI(weight, height);
 console.log(result);

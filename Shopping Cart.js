@@ -4,25 +4,38 @@
  * Author: Foreverekk
  */
 
-// Item object
+//
 class Item {
+/**
+ * Creates an instance of Item.
+ *
+ * @param {string} name - The name of the item.
+ * @param {number} price - The price of the item.
+ */
     constructor(name, price) {
       this.name = name;
       this.price = price;
     }
   }
   
-  // Shopping cart object
   const shoppingCart = {
     items: [],
   
-    // Function to add an item to the shopping cart
+    /**
+     * Adds an item to the shopping cart.
+     *
+     * @param {Item} item - The item to add to the cart.
+     */
     addItem(item) {
       this.items.push(item);
       console.log(`Item '${item.name}' added to the cart.`);
     },
   
-    // Function to remove an item from the shopping cart
+    /**
+     * Removes an item from the shopping cart by index.
+     *
+     * @param {number} index - The index of the item to remove.
+     */
     removeItem(index) {
       if (index >= 0 && index < this.items.length) {
         const removedItem = this.items.splice(index, 1);
@@ -32,7 +45,10 @@ class Item {
       }
     },
   
-    // Function to calculate the total price of the items in the shopping cart
+    /**
+     * Calculates the total price of all items in the shopping cart.
+     * @returns {number} The total price of all items in the shopping cart.
+     */
     calculateTotalPrice() {
       let totalPrice = 0;
       this.items.forEach((item) => {
@@ -41,7 +57,10 @@ class Item {
       return totalPrice;
     },
   
-    // Function to display the items in the shopping cart
+    /**
+     * Displays all items in the shopping cart to the console.
+     * The display includes the item number, name, and price.
+     */
     displayItems() {
       console.log('Shopping Cart Items:');
       this.items.forEach((item, index) => {
@@ -50,7 +69,7 @@ class Item {
     },
   };
   
-  // Example usage of the script
+  // Example Usage:
   const item1 = new Item('T-shirt', 19.99);
   const item2 = new Item('Jeans', 49.99);
   const item3 = new Item('Shoes', 79.99);
